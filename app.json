@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Фильмы",
-    "slug": "Фильмы",
+    "slug": "react-native-app",
     "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/task.png",
