@@ -4,22 +4,15 @@ import { createStackNavigator } from "@react-navigation/stack";
 import PopularsList from "screens/populars/list";
 import PopularsDetail from "screens/populars/detail";
 
+import { tabScreenOptions } from "../styles";
+
 const PopularsStack = createStackNavigator();
 
 export const PopularsStackScreen = () => {
   return (
     <PopularsStack.Navigator
       initialRouteName="PopularList"
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: "#e52165",
-        },
-        headerTintColor: "#fff",
-        headerTitleStyle: {
-          fontFamily: "roboto-bold",
-          color: "#fff",
-        },
-      }}
+      screenOptions={tabScreenOptions}
     >
       <PopularsStack.Screen
         name="PopularList"

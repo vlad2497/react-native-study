@@ -4,22 +4,15 @@ import { createStackNavigator } from "@react-navigation/stack";
 import FavoritesList from "screens/favorites/list";
 import FavoritesDetail from "screens/favorites/detail";
 
+import { tabScreenOptions } from "../styles";
+
 const FavoritesStack = createStackNavigator();
 
 export const FavoritesStackScreen = () => {
   return (
     <FavoritesStack.Navigator
       initialRouteName="FavoritesList"
-      screenOptions={{
-        headerStyle: {
-          backgroundColor: "#e52165",
-        },
-        headerTintColor: "#fff",
-        headerTitleStyle: {
-          fontFamily: "roboto-bold",
-          color: "#fff",
-        },
-      }}
+      screenOptions={tabScreenOptions}
     >
       <FavoritesStack.Screen
         name="FavoritesList"

@@ -1,14 +1,14 @@
 import React from "react";
-import { Image, Text } from "react-native";
+import { Image } from "react-native";
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
 
-import { PopularsStackScreen } from "navigation/stacks/populars.js";
-import { FavoritesStackScreen } from "navigation/stacks/favorites.js";
+import { PopularsStackScreen } from "navigation/stacks/populars";
+import { FavoritesStackScreen } from "navigation/stacks/favorites";
+import { AboutStackScreen } from "navigation/stacks/about";
 
-import homeImage from "../../assets/home.png";
-import favoritesImage from "../../assets/favorites.png";
+import { getTabImage } from "helpers/getTabImage";
 
 const Tab = createBottomTabNavigator();
 
@@ -17,8 +17,7 @@ export const AppWithNavigation = () => {
     <NavigationContainer>
       <Tab.Navigator
         tabBarOptions={{
-          activeTintColor: "black",
-          inactiveTintColor: "grey",
+          showLabel: false,
           style: {
             backgroundColor: "white",
             borderTopColor: "black",
@@ -28,19 +27,14 @@ export const AppWithNavigation = () => {
           },
         }}
         screenOptions={({ route }) => ({
-          tabBarIcon: () => (
-            <Image
-              source={route.name === "Favorites" ? favoritesImage : homeImage}
-              style={{
-                width: 24,
-                height: 24,
-              }}
-            />
+          tabBarIcon: ({ focused }) => (
+            <Image source={getTabImage(route.name, focused)} />
           ),
         })}
       >
         <Tab.Screen name="Populars" component={PopularsStackScreen} />
         <Tab.Screen name="Favorites" component={FavoritesStackScreen} />
+        <Tab.Screen name="About" component={AboutStackScreen} />
       </Tab.Navigator>
     </NavigationContainer>
   );
