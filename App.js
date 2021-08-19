@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import AppLoading from "expo-app-loading";
+import { Provider as PaperProvider } from 'react-native-paper';
 import { loadFonts } from "fonts";
 import { AppWithNavigation } from "navigation";
 
@@ -15,5 +16,5 @@ export default () => {
       />
     );
 
-  return <AppWithNavigation />;
+  return <PaperProvider><AppWithNavigation /></PaperProvider>;
 };

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, FlatList, Text } from "react-native";
 
-import { getList } from "api/movies";
+import { getPopularList } from "api/movies";
 import Movie from "./item";
 import { styles } from "./styles";
 
@@ -11,7 +11,7 @@ const List = ({ navigation }) => {
   useEffect(() => {
     const fetchMovies = async () => {
       try {
-        const response = await getList();
+        const response = await getPopularList();
         setMovies(response?.data?.results);
       } catch (e) {
         console.log(e);

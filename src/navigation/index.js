@@ -23,7 +23,7 @@ export const AppWithNavigation = () => {
             borderTopColor: "black",
             paddingTop: 5,
             paddingBottom: 5,
-            height: 50,
+            height: 80,
           },
         }}
         screenOptions={({ route }) => ({

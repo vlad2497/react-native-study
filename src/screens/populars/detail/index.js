@@ -16,7 +16,7 @@ const Detail = ({ route }) => {
         </View>
         <View style={styles.rightBlock}>
           <Image
-            source={{ uri: `${IMAGES_HOST}/${movie.poster_path}` }}
+            source={{ uri: `${IMAGES_HOST}/t/p/w200/${movie.poster_path}` }}
             style={styles.image}
           />
         </View>

@@ -2,13 +2,19 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    padding: 15,
-    paddingBottom: 0,
     flex: 1,
   },
-  form: {
+  content: {
+    padding: 15,
+    paddingRight: 0,
+    paddingTop: 0,
+  },
+  search: {
     flexDirection: "row",
     justifyContent: "space-between",
+    marginBottom: 20,
+    marginTop: 20,
+    paddingRight: 15,
   },
   input: {
     width: "80%",
@@ -25,8 +31,29 @@ export const styles = StyleSheet.create({
     borderRadius: 5,
     fontFamily: "roboto-medium",
   },
-  list: {
-    paddingTop: 20,
-    flex: 1,
+  carouselWrapper: {
+    marginBottom: 20,
+  },
+  title: {
+    fontFamily: "roboto-bold",
+    fontSize: 26,
+    marginBottom: 6,
+  },
+  banner: {
+    height: 220,
+  },
+  bannerTitle: {
+    fontFamily: "roboto-bold",
+    fontSize: 26,
+    color: "white",
+    padding: 15,
+    paddingTop: 50,
+  },
+  bannerText: {
+    fontFamily: "roboto-bold",
+    fontSize: 18,
+    color: "white",
+    padding: 15,
+    paddingTop: 0,
   },
 });
