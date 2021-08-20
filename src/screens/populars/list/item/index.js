@@ -21,7 +21,7 @@ const Movie = ({ movie, onPress }) => {
         <View style={styles.circularProgress}>
           <CircularProgress
             value={movie.vote_average}
-            radius={30}
+            radius={20}
             textColor={"#ecf0f1"}
             activeStrokeColor={"#1ed5a9"}
             inActiveStrokeColor={"#ecf0f1"}

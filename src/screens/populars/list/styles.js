@@ -36,7 +36,7 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontFamily: "roboto-bold",
-    fontSize: 26,
+    fontSize: 21,
     marginBottom: 6,
   },
   banner: {

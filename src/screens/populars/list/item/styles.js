@@ -4,7 +4,7 @@ export const styles = StyleSheet.create({
   container: {
     position: "relative",
     height: 200,
-    backgroundColor: "#7a2048",
+    backgroundColor: "#0d1137", //"#7a2048",
     borderRadius: 10,
   },
   content: {
@@ -22,7 +22,7 @@ export const styles = StyleSheet.create({
     padding: 25,
   },
   title: {
-    fontSize: 20,
+    fontSize: 18,
     color: "white",
     fontFamily: "roboto-bold",
     marginBottom: 10,
@@ -35,7 +35,7 @@ export const styles = StyleSheet.create({
   rateLabel: {
     position: "absolute",
     top: 41,
-    right: 40,
+    right: 46,
 
     fontSize: 16,
     color: "white",
@@ -46,10 +46,11 @@ export const styles = StyleSheet.create({
     width: "50%",
     resizeMode: "cover",
     borderTopLeftRadius: 10,
+    borderBottomLeftRadius: 10,
   },
   circularProgress: {
     position: "absolute",
-    top: 20,
+    top: 30,
     right: 90,
   },
 });
