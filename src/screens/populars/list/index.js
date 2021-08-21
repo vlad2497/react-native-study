@@ -2,16 +2,21 @@ import React, { useState, useEffect } from "react";
 import {
   View,
   TextInput,
-  Button,
   ScrollView,
   Text,
   ImageBackground,
+  Dimensions,
 } from "react-native";
+import { Button, ActivityIndicator } from "react-native-paper";
+
 import Carousel from "components/ui/carousel";
 import { getPopularList, getTopList } from "api/movies";
 import { IMAGES_HOST } from "constants/api";
+
 import Movie from "./item";
 import { styles } from "./styles";
+
+const screen = Dimensions.get("screen");
 
 const List = ({ navigation }) => {
   const [search, setSearch] = useState("");
@@ -34,8 +39,8 @@ const List = ({ navigation }) => {
 
   if (!popularMovies?.length || !topMovies?.length)
     return (
-      <View>
-        <Text>Загрузка</Text>
+      <View style={styles.loaderContainer}>
+        <ActivityIndicator animating={true} color="#0d1137" size={50} />
       </View>
     );
 
@@ -61,16 +66,14 @@ const List = ({ navigation }) => {
             placeholder="Введите название фильма"
             placeholderTextColor={"white"}
           />
-          <Button
-            style={styles.button}
-            title="Найти"
-            color="#5c3c92"
-            onPress={() => {}}
-          />
+          <Button flat style={styles.button} color="#5c3c92" onPress={() => {}}>
+            Найти
+          </Button>
         </View>
         <Text style={styles.title}>Популярное</Text>
         <View style={styles.carouselWrapper}>
           <Carousel
+            width={screen.width - 80}
             items={popularMovies}
             renderItem={({ item }) => (
               <Movie
@@ -84,6 +87,7 @@ const List = ({ navigation }) => {
         </View>
         <Text style={styles.title}>Лучшие оценки</Text>
         <Carousel
+          width={screen.width - 80}
           items={topMovies}
           renderItem={({ item }) => (
             <Movie

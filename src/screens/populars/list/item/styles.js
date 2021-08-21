@@ -1,11 +1,12 @@
 import { StyleSheet } from "react-native";
 
+const borderRadius = 20;
+
 export const styles = StyleSheet.create({
   container: {
     position: "relative",
     height: 200,
-    backgroundColor: "#0d1137", //"#7a2048",
-    borderRadius: 10,
+    borderRadius: borderRadius,
   },
   content: {
     position: "absolute",
@@ -13,8 +14,8 @@ export const styles = StyleSheet.create({
 
     backgroundColor: "black",
     opacity: 0.8,
-    borderBottomStartRadius: 10,
-    borderBottomEndRadius: 10,
+    borderBottomStartRadius: borderRadius,
+    borderBottomEndRadius: borderRadius,
 
     width: "100%",
     height: 100,
@@ -32,25 +33,32 @@ export const styles = StyleSheet.create({
     color: "white",
     fontFamily: "roboto-bold",
   },
-  rateLabel: {
-    position: "absolute",
-    top: 41,
-    right: 46,
+  image: {
+    height: 200,
+    width: "65%",
+    resizeMode: "cover",
+    borderTopLeftRadius: borderRadius,
+    borderBottomLeftRadius: borderRadius,
+  },
+  voteContainer: {
+    alignItems: "center",
+    paddingTop: 15,
+    width: "35%",
+    height: "100%",
 
+    position: "absolute",
+    top: 0,
+    right: 0,
+    backgroundColor: "#0d1137",
+
+    borderTopRightRadius: borderRadius,
+    borderBottomRightRadius: borderRadius,
+  },
+  voteLabel: {
     fontSize: 16,
     color: "white",
     fontFamily: "roboto-bold",
+    paddingTop: 5,
   },
-  image: {
-    height: 200,
-    width: "50%",
-    resizeMode: "cover",
-    borderTopLeftRadius: 10,
-    borderBottomLeftRadius: 10,
-  },
-  circularProgress: {
-    position: "absolute",
-    top: 30,
-    right: 90,
-  },
+  voteProgress: {},
 });

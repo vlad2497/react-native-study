@@ -1,6 +1,10 @@
 import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
+  loaderContainer: {
+    flex: 1,
+    justifyContent: "center",
+  },
   container: {
     flex: 1,
   },
@@ -12,12 +16,12 @@ export const styles = StyleSheet.create({
   search: {
     flexDirection: "row",
     justifyContent: "space-between",
-    marginBottom: 20,
-    marginTop: 20,
+    marginBottom: 30,
+    marginTop: 30,
     paddingRight: 15,
   },
   input: {
-    width: "80%",
+    width: "75%",
     borderRadius: 5,
     paddingLeft: 10,
     paddingRight: 10,
@@ -27,17 +31,16 @@ export const styles = StyleSheet.create({
     fontFamily: "roboto-medium",
   },
   button: {
-    width: "20%",
-    borderRadius: 5,
+    width: "25%",
     fontFamily: "roboto-medium",
   },
   carouselWrapper: {
-    marginBottom: 20,
+    marginBottom: 30,
   },
   title: {
     fontFamily: "roboto-bold",
-    fontSize: 21,
-    marginBottom: 6,
+    fontSize: 20,
+    marginBottom: 12,
   },
   banner: {
     height: 220,

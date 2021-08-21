@@ -1,5 +1,5 @@
 import React from "react";
-import { Image } from "react-native";
+import { Image, SafeAreaView } from "react-native";
 
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { NavigationContainer } from "@react-navigation/native";
@@ -15,27 +15,36 @@ const Tab = createBottomTabNavigator();
 export const AppWithNavigation = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator
-        tabBarOptions={{
-          showLabel: false,
-          style: {
-            backgroundColor: "white",
-            borderTopColor: "black",
-            paddingTop: 5,
-            paddingBottom: 5,
-            height: 80,
-          },
-        }}
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused }) => (
-            <Image source={getTabImage(route.name, focused)} />
-          ),
-        })}
-      >
-        <Tab.Screen name="Populars" component={PopularsStackScreen} />
-        <Tab.Screen name="Favorites" component={FavoritesStackScreen} />
-        <Tab.Screen name="About" component={AboutStackScreen} />
-      </Tab.Navigator>
+      <SafeAreaView style={{ flex: 1 }}>
+        <Tab.Navigator
+          tabBarOptions={{
+            showLabel: false,
+            style: {
+              backgroundColor: "white",
+              borderTopColor: "black",
+              paddingTop: 15,
+              paddingBottom: 5,
+              height: 30,
+            },
+            tabStyle: {
+              width: 24,
+              height: 24,
+            },
+          }}
+          screenOptions={({ route }) => ({
+            tabBarIcon: ({ focused }) => (
+              <Image
+                source={getTabImage(route.name, focused)}
+                style={{ width: 24, height: 24 }}
+              />
+            ),
+          })}
+        >
+          <Tab.Screen name="Populars" component={PopularsStackScreen} />
+          <Tab.Screen name="Favorites" component={FavoritesStackScreen} />
+          <Tab.Screen name="About" component={AboutStackScreen} />
+        </Tab.Navigator>
+      </SafeAreaView>
     </NavigationContainer>
   );
 };

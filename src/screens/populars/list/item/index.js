@@ -18,19 +18,23 @@ const Movie = ({ movie, onPress }) => {
           source={{ uri: `${IMAGES_HOST}/t/p/w200/${movie.poster_path}` }}
           style={styles.image}
         />
-        <View style={styles.circularProgress}>
-          <CircularProgress
-            value={movie.vote_average}
-            radius={20}
-            textColor={"#ecf0f1"}
-            activeStrokeColor={"#1ed5a9"}
-            inActiveStrokeColor={"#ecf0f1"}
-            maxValue={10}
-          />
+        <View style={styles.voteContainer}>
+          <View style={styles.voteProgress}>
+            <CircularProgress
+              value={movie.vote_average}
+              radius={25}
+              textColor={"#ecf0f1"}
+              activeStrokeColor={"#1ed5a9"}
+              inActiveStrokeColor={"#ecf0f1"}
+              maxValue={10}
+            />
+          </View>
+          <Text style={styles.voteLabel}>из 10</Text>
         </View>
-        <Text style={styles.rateLabel}>из 10</Text>
         <View style={styles.content}>
-          <Text style={styles.title}>{movie.title}</Text>
+          <Text style={styles.title} numberOfLines={1} ellipsizeMode="tail">
+            {movie.title}
+          </Text>
           <Text style={styles.text}>Рейтинг: {movie.vote_average}</Text>
         </View>
       </View>
