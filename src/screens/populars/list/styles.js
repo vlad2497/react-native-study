@@ -1,4 +1,6 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, Dimensions } from "react-native";
+
+const screen = Dimensions.get("screen");
 
 export const styles = StyleSheet.create({
   loaderContainer: {
@@ -21,7 +23,7 @@ export const styles = StyleSheet.create({
     paddingRight: 15,
   },
   input: {
-    width: "75%",
+    width: screen.width - 115,
     borderRadius: 5,
     paddingLeft: 10,
     paddingRight: 10,
@@ -31,7 +33,7 @@ export const styles = StyleSheet.create({
     fontFamily: "roboto-medium",
   },
   button: {
-    width: "25%",
+    width: 100,
     fontFamily: "roboto-medium",
   },
   carouselWrapper: {

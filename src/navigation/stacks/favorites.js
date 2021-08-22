@@ -1,6 +1,8 @@
 import React from "react";
 
 import { createStackNavigator } from "@react-navigation/stack";
+//import { FluidNavigator } from "react-navigation-fluid-transitions";
+
 import FavoritesList from "screens/favorites/list";
 import FavoritesDetail from "screens/favorites/detail";
 

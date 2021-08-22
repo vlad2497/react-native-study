@@ -23,8 +23,8 @@ export const AppWithNavigation = () => {
               backgroundColor: "white",
               borderTopColor: "black",
               paddingTop: 15,
-              paddingBottom: 5,
-              height: 30,
+              paddingBottom: 25,
+              height: 50,
             },
             tabStyle: {
               width: 24,

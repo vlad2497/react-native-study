@@ -1,8 +1,8 @@
 import React from "react";
-
 import { createStackNavigator } from "@react-navigation/stack";
-import About from "screens/about";
+//import { FluidNavigator } from "react-navigation-fluid-transitions";
 
+import About from "screens/about";
 import { tabScreenOptions } from "../styles";
 
 const AboutStack = createStackNavigator();
