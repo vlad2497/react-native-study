@@ -1,5 +1,6 @@
 import React from "react";
 import { View, Text, Image } from "react-native";
+import { SharedElement } from "react-navigation-shared-element";
 
 import { IMAGES_HOST } from "constants/api";
 import { styles } from "./styles";
@@ -15,10 +16,12 @@ const Detail = ({ route }) => {
           <Text style={styles.text}>Рейтинг: {movie.vote_average}</Text>
         </View>
         <View style={styles.rightBlock}>
-          <Image
-            source={{ uri: `${IMAGES_HOST}/t/p/w200/${movie.poster_path}` }}
-            style={styles.image}
-          />
+          <SharedElement id={`item.${movie.title}.photo`}>
+            <Image
+              source={{ uri: `${IMAGES_HOST}/t/p/w200/${movie.poster_path}` }}
+              style={styles.image}
+            />
+          </SharedElement>
         </View>
       </View>
       <Text style={styles.description}>{movie?.overview || ""}</Text>

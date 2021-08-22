@@ -1,6 +1,7 @@
 import React from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import CircularProgress from "react-native-circular-progress-indicator";
+import { SharedElement } from "react-navigation-shared-element";
 
 import { IMAGES_HOST } from "constants/api";
 
@@ -14,10 +15,12 @@ const Movie = ({ movie, onPress }) => {
       onPress={onPress}
     >
       <View style={styles.container}>
-        <Image
-          source={{ uri: `${IMAGES_HOST}/t/p/w200/${movie.poster_path}` }}
-          style={styles.image}
-        />
+        <SharedElement id={`item.${movie.title}.photo`}>
+          <Image
+            source={{ uri: `${IMAGES_HOST}/t/p/w200/${movie.poster_path}` }}
+            style={styles.image}
+          />
+        </SharedElement>
         <View style={styles.voteContainer}>
           <View style={styles.voteProgress}>
             <CircularProgress
