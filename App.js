@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import AppLoading from "expo-app-loading";
-import { Provider as PaperProvider } from 'react-native-paper';
 import { loadFonts } from "fonts";
-import { AppWithNavigation } from "navigation";
+import Auth from "screens/auth";
 
 export default () => {
   const [loading, setLoading] = useState(true);
@@ -16,5 +15,5 @@ export default () => {
       />
     );
 
-  return <PaperProvider><AppWithNavigation /></PaperProvider>;
+  return <Auth />;
 };
