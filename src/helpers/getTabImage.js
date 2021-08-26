@@ -6,10 +6,10 @@ import infoImage from "../../assets/icons/tabs/info.png";
 import infoImageActive from "../../assets/icons/tabs/info-active.png";
 
 export const getTabImage = (routeName, focused) => {
-  if (routeName === "Favorites") {
+  if (routeName === "Populars") {
     if (focused) return homeImageActive;
     else return homeImage;
-  } else if (routeName === "Populars") {
+  } else if (routeName === "Favorites") {
     if (focused) return favoritesImageActive;
     else return favoritesImage;
   } else if (routeName === "About") {

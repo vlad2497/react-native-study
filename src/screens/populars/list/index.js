@@ -10,10 +10,10 @@ import {
 import { Button, ActivityIndicator } from "react-native-paper";
 
 import Carousel from "components/ui/carousel";
+import Movie from "components/base/movies/card";
 import { getPopularList, getTopList } from "api/movies";
 import { IMAGES_HOST } from "constants/api";
 
-import Movie from "./item";
 import { styles } from "./styles";
 
 const screen = Dimensions.get("screen");

@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/task.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/auth-logo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },

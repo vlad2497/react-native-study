@@ -2,8 +2,6 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    padding: 15,
-    paddingBottom: 0,
     flex: 1,
   },
   form: {
@@ -26,7 +24,27 @@ export const styles = StyleSheet.create({
     fontFamily: "roboto-medium",
   },
   list: {
-    paddingTop: 20,
+    padding: 15,
     flex: 1,
+  },
+  card: {
+    marginBottom: 20,
+  },
+  banner: {
+    height: 220,
+  },
+  bannerTitle: {
+    fontFamily: "roboto-bold",
+    fontSize: 26,
+    color: "white",
+    padding: 15,
+    paddingTop: 50,
+  },
+  bannerText: {
+    fontFamily: "roboto-bold",
+    fontSize: 18,
+    color: "white",
+    padding: 15,
+    paddingTop: 0,
   },
 });

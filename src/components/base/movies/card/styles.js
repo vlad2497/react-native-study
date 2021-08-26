@@ -18,18 +18,18 @@ export const styles = StyleSheet.create({
     borderBottomEndRadius: borderRadius,
 
     width: "100%",
-    height: 100,
+    height: 70,
 
-    padding: 25,
+    padding: 10,
   },
   title: {
-    fontSize: 18,
+    fontSize: 16,
     color: "white",
     fontFamily: "roboto-bold",
-    marginBottom: 10,
+    marginBottom: 5,
   },
   text: {
-    fontSize: 16,
+    fontSize: 14,
     color: "white",
     fontFamily: "roboto-bold",
   },
@@ -42,7 +42,7 @@ export const styles = StyleSheet.create({
   },
   voteContainer: {
     alignItems: "center",
-    paddingTop: 15,
+    paddingTop: 28,
     width: "35%",
     height: "100%",
 
@@ -58,7 +58,5 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     color: "white",
     fontFamily: "roboto-bold",
-    paddingTop: 5,
   },
-  voteProgress: {},
 });
