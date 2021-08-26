@@ -4,7 +4,7 @@
     "slug": "react-native-app",
     "version": "1.0.3",
     "orientation": "portrait",
-    "icon": "./assets/task.png",
+    "icon": "./assets/icon.png",
     "splash": {
       "image": "./assets/auth-logo.png",
       "resizeMode": "contain",
@@ -20,7 +20,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.ideas.test"
