@@ -2,7 +2,7 @@ import React from "react";
 import { createSharedElementStackNavigator } from "react-navigation-shared-element";
 
 import PopularsList from "screens/populars/list";
-import PopularsDetail from "screens/populars/detail";
+import MovieDetail from "components/base/movies/detail";
 
 import { tabScreenOptions } from "../styles";
 
@@ -21,8 +21,11 @@ export const PopularsStackScreen = () => {
       />
       <PopularsStack.Screen
         name="PopularDetail"
-        component={PopularsDetail}
-        options={({ route }) => ({ title: route.params.movie.title })}
+        component={MovieDetail}
+        options={({ route }) => ({
+          title: route.params.movie.title,
+          headerBackTitleVisible: false,
+        })}
         sharedElements={(route, otherRoute, showing) => {
           if (otherRoute.name === "PopularList" && showing) {
             const { movie } = route.params;

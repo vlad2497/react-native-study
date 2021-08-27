@@ -23,15 +23,22 @@ export const styles = StyleSheet.create({
     borderRadius: 5,
     fontFamily: "roboto-medium",
   },
+  loaderContainer: {
+    flex: 1,
+    justifyContent: "center",
+  },
   list: {
     padding: 15,
     flex: 1,
   },
   card: {
     marginBottom: 20,
+    marginLeft: 15,
+    marginRight: 15,
   },
   banner: {
     height: 220,
+    marginBottom: 15,
   },
   bannerTitle: {
     fontFamily: "roboto-bold",

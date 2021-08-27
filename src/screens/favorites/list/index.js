@@ -1,11 +1,5 @@
 import React, { useState, useEffect } from "react";
-import {
-  ScrollView,
-  View,
-  FlatList,
-  ImageBackground,
-  Text,
-} from "react-native";
+import { View, FlatList, ImageBackground, Text } from "react-native";
 import { ActivityIndicator } from "react-native-paper";
 
 import { getPopularList } from "api/movies";
@@ -37,35 +31,33 @@ const List = ({ navigation }) => {
     );
 
   return (
-    <ScrollView style={styles.container}>
-      <ImageBackground
-        source={{
-          uri: `${IMAGES_HOST}/t/p/w1920_and_h600_multi_faces_filter(duotone,032541,01b4e4)/kf456ZqeC45XTvo6W9pW5clYKfQ.jpg`,
-        }}
-        style={styles.banner}
-      >
-        <Text style={styles.bannerTitle}>Добро пожаловать.</Text>
-        <Text style={styles.bannerText}>
-          Миллионы фильмов, сериалов и людей. Исследуйте сейчас.
-        </Text>
-      </ImageBackground>
-      <View style={styles.list}>
-        <FlatList
-          data={movies}
-          renderItem={({ item }) => (
-            <View style={styles.card}>
-              <Movie
-                movie={item}
-                onPress={() =>
-                  navigation.navigate("FavoritesDetail", { movie: item })
-                }
-              />
-            </View>
-          )}
-          keyExtractor={(movie) => movie.id.toString()}
-        />
-      </View>
-    </ScrollView>
+    <FlatList
+      ListHeaderComponent={
+        <ImageBackground
+          source={{
+            uri: `${IMAGES_HOST}/t/p/w1920_and_h600_multi_faces_filter(duotone,032541,01b4e4)/kf456ZqeC45XTvo6W9pW5clYKfQ.jpg`,
+          }}
+          style={styles.banner}
+        >
+          <Text style={styles.bannerTitle}>Добро пожаловать.</Text>
+          <Text style={styles.bannerText}>
+            Миллионы фильмов, сериалов и людей. Исследуйте сейчас.
+          </Text>
+        </ImageBackground>
+      }
+      data={movies}
+      renderItem={({ item }) => (
+        <View style={styles.card}>
+          <Movie
+            movie={item}
+            onPress={() =>
+              navigation.navigate("FavoritesDetail", { movie: item })
+            }
+          />
+        </View>
+      )}
+      keyExtractor={(movie) => movie.id.toString()}
+    />
   );
 };
 

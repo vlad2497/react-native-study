@@ -1,14 +1,13 @@
 import React from "react";
 
-import { createStackNavigator } from "@react-navigation/stack";
-//import { FluidNavigator } from "react-navigation-fluid-transitions";
+import { createSharedElementStackNavigator } from "react-navigation-shared-element";
 
 import FavoritesList from "screens/favorites/list";
-import FavoritesDetail from "screens/favorites/detail";
+import MovieDetail from "components/base/movies/detail";
 
 import { tabScreenOptions } from "../styles";
 
-const FavoritesStack = createStackNavigator();
+const FavoritesStack = createSharedElementStackNavigator();
 
 export const FavoritesStackScreen = () => {
   return (
@@ -23,8 +22,17 @@ export const FavoritesStackScreen = () => {
       />
       <FavoritesStack.Screen
         name="FavoritesDetail"
-        component={FavoritesDetail}
-        options={({ route }) => ({ title: route.params.movie.title })}
+        component={MovieDetail}
+        options={({ route }) => ({
+          title: route.params.movie.title,
+          headerBackTitleVisible: false,
+        })}
+        sharedElements={(route, otherRoute, showing) => {
+          if (otherRoute.name === "FavoritesList" && showing) {
+            const { movie } = route.params;
+            return [`item.${movie.title}.photo`];
+          }
+        }}
       />
     </FavoritesStack.Navigator>
   );

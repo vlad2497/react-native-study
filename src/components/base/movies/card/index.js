@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import CircularProgress from "react-native-circular-progress-indicator";
 import { SharedElement } from "react-navigation-shared-element";
@@ -45,4 +45,4 @@ const Movie = ({ movie, onPress }) => {
   );
 };
 
-export default Movie;
+export default memo(Movie);
