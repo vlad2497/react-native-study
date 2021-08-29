@@ -35,13 +35,14 @@ export const styles = StyleSheet.create({
   label: {
     fontFamily: "roboto-bold",
     fontSize: 18,
-    marginBottom: 5,
+    marginBottom: 10,
     marginTop: 15,
   },
   image: {
     resizeMode: "cover",
     width: "100%",
-    height: 250,
+    height: 280,
+    borderRadius: 15,
   },
   genreItem: {
     fontFamily: "roboto-regular",

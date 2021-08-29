@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { View, FlatList, ImageBackground, Text } from "react-native";
+import { View, FlatList } from "react-native";
 import { ActivityIndicator } from "react-native-paper";
 
 import { getPopularList } from "api/movies";
 import Movie from "components/base/movies/card";
-import { IMAGES_HOST } from "constants/api";
+import Banner from "components/base/banner";
 
 import { styles } from "./styles";
 
@@ -33,17 +33,9 @@ const List = ({ navigation }) => {
   return (
     <FlatList
       ListHeaderComponent={
-        <ImageBackground
-          source={{
-            uri: `${IMAGES_HOST}/t/p/w1920_and_h600_multi_faces_filter(duotone,032541,01b4e4)/kf456ZqeC45XTvo6W9pW5clYKfQ.jpg`,
-          }}
-          style={styles.banner}
-        >
-          <Text style={styles.bannerTitle}>Добро пожаловать.</Text>
-          <Text style={styles.bannerText}>
-            Миллионы фильмов, сериалов и людей. Исследуйте сейчас.
-          </Text>
-        </ImageBackground>
+        <View style={{ marginBottom: 20 }}>
+          <Banner />
+        </View>
       }
       data={movies}
       renderItem={({ item }) => (

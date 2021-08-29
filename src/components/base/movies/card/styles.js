@@ -4,55 +4,53 @@ const borderRadius = 20;
 
 export const styles = StyleSheet.create({
   container: {
-    position: "relative",
-    height: 200,
+    height: 250,
     borderRadius: borderRadius,
+    flexDirection: "row",
+    backgroundColor: "#0d1137",
+  },
+  leftBlock: {
+    width: "50%",
+  },
+  image: {
+    height: 250,
+    resizeMode: "cover",
+    borderTopLeftRadius: borderRadius,
+    borderBottomLeftRadius: borderRadius,
+  },
+  rightBlock: {
+    width: "50%",
+    flex: 1,
+    justifyContent: "space-between",
   },
   content: {
-    position: "absolute",
-    bottom: 0,
-
-    backgroundColor: "black",
-    opacity: 0.8,
+    height: "50%",
+    justifyContent: "flex-end",
     borderBottomStartRadius: borderRadius,
     borderBottomEndRadius: borderRadius,
 
-    width: "100%",
-    height: 70,
-
     padding: 10,
+    paddingBottom: 25,
   },
   title: {
     fontSize: 16,
     color: "white",
     fontFamily: "roboto-bold",
     marginBottom: 5,
+    textAlign: "center",
   },
   text: {
     fontSize: 14,
     color: "white",
     fontFamily: "roboto-bold",
-  },
-  image: {
-    height: 200,
-    width: "65%",
-    resizeMode: "cover",
-    borderTopLeftRadius: borderRadius,
-    borderBottomLeftRadius: borderRadius,
+    textAlign: "center",
   },
   voteContainer: {
+    height: "50%",
     alignItems: "center",
-    paddingTop: 28,
-    width: "35%",
-    height: "100%",
-
-    position: "absolute",
-    top: 0,
-    right: 0,
-    backgroundColor: "#0d1137",
+    justifyContent: "flex-start",
 
     borderTopRightRadius: borderRadius,
-    borderBottomRightRadius: borderRadius,
   },
   voteLabel: {
     fontSize: 16,

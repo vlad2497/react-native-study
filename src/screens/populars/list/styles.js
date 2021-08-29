@@ -44,21 +44,4 @@ export const styles = StyleSheet.create({
     fontSize: 20,
     marginBottom: 12,
   },
-  banner: {
-    height: 220,
-  },
-  bannerTitle: {
-    fontFamily: "roboto-bold",
-    fontSize: 26,
-    color: "white",
-    padding: 15,
-    paddingTop: 50,
-  },
-  bannerText: {
-    fontFamily: "roboto-bold",
-    fontSize: 18,
-    color: "white",
-    padding: 15,
-    paddingTop: 0,
-  },
 });
