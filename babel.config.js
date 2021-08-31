@@ -14,6 +14,7 @@ module.exports = function (api) {
             fonts: "./src/fonts",
             navigation: "./src/navigation",
             helpers: "./src/helpers",
+            dbModels: "./src/db-models",
           },
         },
       ],

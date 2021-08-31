@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { View, Text, Image } from "react-native";
 
 import ImagePicker from "components/ui/image-picker";
+import { CameraButton, CameraView } from "components/ui/camera";
 import Button from "components/ui/button";
 import {
   createUsersTable,
@@ -14,6 +15,7 @@ import { styles } from "./styles";
 
 const Profile = () => {
   const [selectedImage, setSelectedImage] = useState(null);
+  const [startCamera, setStartCamera] = useState(false);
   const [users, setUsers] = useState(null);
 
   useEffect(() => {
@@ -40,6 +42,8 @@ const Profile = () => {
     updateUser(1, imageUri);
   };
 
+  if (startCamera) return <CameraView />;
+
   return (
     <View style={styles.container}>
       <Text style={styles.title}>Работа с фото (ссылка хранится в бд)</Text>
@@ -51,6 +55,9 @@ const Profile = () => {
           >
             <Button>с устройства</Button>
           </ImagePicker>
+          <CameraButton setStartCamera={setStartCamera}>
+            <Button>новое</Button>
+          </CameraButton>
         </View>
         <View style={styles.photoContainerRight}>
           {selectedImage?.localUri ? (

@@ -8,6 +8,7 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontFamily: "roboto-bold",
+    fontSize: 16,
     color: "#0d1137",
     marginBottom: 15,
   },
@@ -17,6 +18,7 @@ export const styles = StyleSheet.create({
   },
   photoContainerLeft: {
     width: "50%",
+    justifyContent: "space-around",
   },
   photoContainerRight: {
     width: "50%",
