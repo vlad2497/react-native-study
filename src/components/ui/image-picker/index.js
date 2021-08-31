@@ -2,7 +2,7 @@ import React from "react";
 import { Text, TouchableOpacity } from "react-native";
 import * as ImagePicker from "expo-image-picker";
 
-export default ({ setSelectedImage }) => {
+export default ({ setSelectedImage, children, onSuccess }) => {
   let openImagePickerAsync = async () => {
     let permissionResult =
       await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -18,12 +18,13 @@ export default ({ setSelectedImage }) => {
       return;
     } else {
       setSelectedImage({ localUri: pickerResult.uri });
+      onSuccess(pickerResult.uri);
     }
   };
 
   return (
     <TouchableOpacity onPress={openImagePickerAsync}>
-      <Text>Pick a photo</Text>
+      {children}
     </TouchableOpacity>
   );
 };
