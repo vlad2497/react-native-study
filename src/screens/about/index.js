@@ -42,7 +42,13 @@ const Profile = () => {
     updateUser(1, imageUri);
   };
 
-  if (startCamera) return <CameraView />;
+  const handleNewPhoto = (imageUri) => {
+    setStartCamera(false);
+    setSelectedImage({ localUri: imageUri });
+    savePhotoToDb(1, imageUri);
+  };
+
+  if (startCamera) return <CameraView handleNewPhoto={handleNewPhoto} />;
 
   return (
     <View style={styles.container}>
