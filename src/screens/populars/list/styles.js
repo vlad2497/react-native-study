@@ -24,6 +24,7 @@ export const styles = StyleSheet.create({
   },
   input: {
     width: screen.width - 115,
+    height: "100%",
     borderRadius: 5,
     paddingLeft: 10,
     paddingRight: 10,

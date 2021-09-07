@@ -57,4 +57,11 @@ export const styles = StyleSheet.create({
     color: "white",
     fontFamily: "roboto-bold",
   },
+  shadowProp: {
+    shadowColor: "black",
+    shadowOffset: { width: -2, height: 4 },
+    shadowOpacity: 0.7,
+    shadowRadius: 3,
+    elevation: 20,
+  },
 });

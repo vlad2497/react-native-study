@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { View, Text, Image } from "react-native";
+import MapView from "react-native-maps";
 
 import ImagePicker from "components/ui/image-picker";
 import { CameraButton, CameraView } from "components/ui/camera";
 import Button from "components/ui/button";
+import useGetGeolocation from "hooks/useGetGeolocation";
 import {
   createUsersTable,
   getUsers,
@@ -13,10 +15,13 @@ import {
 
 import { styles } from "./styles";
 
+let Marker = MapView.Marker;
+
 const Profile = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   const [startCamera, setStartCamera] = useState(false);
   const [users, setUsers] = useState(null);
+  const { location, getGeolocation } = useGetGeolocation();
 
   useEffect(() => {
     createUsersTable();
@@ -45,8 +50,10 @@ const Profile = () => {
   const handleNewPhoto = (imageUri) => {
     setStartCamera(false);
     setSelectedImage({ localUri: imageUri });
-    savePhotoToDb(1, imageUri);
+    savePhotoToDb(imageUri);
   };
+
+  console.log(location);
 
   if (startCamera) return <CameraView handleNewPhoto={handleNewPhoto} />;
 
@@ -77,6 +84,27 @@ const Profile = () => {
         </View>
       </View>
       <Text style={styles.title}>Работа с геолокацией</Text>
+      <View style={styles.mapContainer}>
+        <MapView
+          style={styles.map}
+          region={{
+            latitude: location?.coords?.latitude || 37.78825,
+            longitude: location?.coords?.longitude || -122.4324,
+            latitudeDelta: location?.coords?.latitude ? 0.01 : 0.0922,
+            longitudeDelta: location?.coords?.latitude ? 0.01 : 0.0421,
+          }}
+        >
+          {location && (
+            <Marker
+              coordinate={{
+                latitude: location?.coords?.latitude,
+                longitude: location?.coords?.longitude,
+              }}
+            />
+          )}
+        </MapView>
+        <Button onPress={getGeolocation}>найти меня</Button>
+      </View>
       <Text style={styles.title}>Версия приложения 1.0.0</Text>
     </View>
   );

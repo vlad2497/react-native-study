@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { View, TextInput, ScrollView, Text, Dimensions } from "react-native";
 import { Button, ActivityIndicator } from "react-native-paper";
+import { Shadow } from "react-native-shadow-2";
 
 import Carousel from "components/ui/carousel";
 import Movie from "components/base/movies/card";
@@ -42,13 +43,15 @@ const List = ({ navigation }) => {
       <Banner />
       <View style={styles.content}>
         <View style={styles.search}>
-          <TextInput
-            style={styles.input}
-            value={search}
-            onChangeText={(text) => setSearch(text)}
-            placeholder="Введите название фильма"
-            placeholderTextColor={"white"}
-          />
+          <Shadow viewStyle={{ width: "100%", height: 30 }}>
+            <TextInput
+              style={[styles.input]}
+              value={search}
+              onChangeText={(text) => setSearch(text)}
+              placeholder="Введите название фильма"
+              placeholderTextColor={"white"}
+            />
+          </Shadow>
           <Button flat style={styles.button} color="#5c3c92" onPress={() => {}}>
             Найти
           </Button>

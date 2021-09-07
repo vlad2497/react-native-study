@@ -15,6 +15,7 @@ module.exports = function (api) {
             navigation: "./src/navigation",
             helpers: "./src/helpers",
             dbModels: "./src/db-models",
+            hooks: "./src/hooks",
           },
         },
       ],

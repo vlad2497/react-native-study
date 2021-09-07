@@ -30,4 +30,11 @@ export const styles = StyleSheet.create({
     borderRadius: 60,
     backgroundColor: "silver",
   },
+  mapContainer: {
+    marginBottom: 40,
+  },
+  map: {
+    width: "100%",
+    height: 200,
+  },
 });

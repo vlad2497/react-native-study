@@ -21,7 +21,7 @@ export const AppWithNavigation = () => {
             style: {
               backgroundColor: "white",
               borderTopColor: "black",
-              paddingTop: 15,
+              paddingTop: 10,
               paddingBottom: 25,
               height: 50,
             },
@@ -34,7 +34,10 @@ export const AppWithNavigation = () => {
             tabBarIcon: ({ focused }) => (
               <Image
                 source={getTabImage(route.name, focused)}
-                style={{ width: 24, height: 24 }}
+                style={{
+                  width: 24,
+                  height: 24,
+                }}
               />
             ),
           })}
