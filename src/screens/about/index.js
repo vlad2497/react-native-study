@@ -53,8 +53,6 @@ const Profile = () => {
     savePhotoToDb(imageUri);
   };
 
-  console.log(location);
-
   if (startCamera) return <CameraView handleNewPhoto={handleNewPhoto} />;
 
   return (

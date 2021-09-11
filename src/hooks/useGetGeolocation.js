@@ -11,7 +11,18 @@ export default () => {
       return;
     }
 
-    let location = await Location.getCurrentPositionAsync({});
+    let location;
+    let locationSuccess = false;
+    while (!locationSuccess) {
+      try {
+        location = await Location.getCurrentPositionAsync({
+          accuracy: Location.Accuracy.High,
+        });
+        locationSuccess = true;
+      } catch (ex) {
+        console.log("Location failed - Retrying...");
+      }
+    }
     setLocation(location);
   }, []);
 
