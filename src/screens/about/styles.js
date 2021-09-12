@@ -14,7 +14,7 @@ export const styles = StyleSheet.create({
   },
   photoContainer: {
     flexDirection: "row",
-    marginBottom: 15,
+    marginBottom: 40,
   },
   photoContainerLeft: {
     width: "50%",
@@ -36,5 +36,11 @@ export const styles = StyleSheet.create({
   map: {
     width: "100%",
     height: 200,
+  },
+  pushContainer: {
+    marginBottom: 40,
+  },
+  infoContainer: {
+    marginBottom: 40,
   },
 });

@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { View, Text, Image } from "react-native";
+import { ScrollView, View, Text, Image } from "react-native";
 import MapView from "react-native-maps";
 
 import ImagePicker from "components/ui/image-picker";
 import { CameraButton, CameraView } from "components/ui/camera";
 import Button from "components/ui/button";
 import useGetGeolocation from "hooks/useGetGeolocation";
+import useSubscribeForPushNotifications from "hooks/useSubscribeForPushNotifications";
 import {
   createUsersTable,
   getUsers,
@@ -22,6 +23,7 @@ const Profile = () => {
   const [startCamera, setStartCamera] = useState(false);
   const [users, setUsers] = useState(null);
   const { location, getGeolocation } = useGetGeolocation();
+  const { sendPush } = useSubscribeForPushNotifications();
 
   useEffect(() => {
     createUsersTable();
@@ -56,7 +58,7 @@ const Profile = () => {
   if (startCamera) return <CameraView handleNewPhoto={handleNewPhoto} />;
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <Text style={styles.title}>Работа с фото (ссылка хранится в бд)</Text>
       <View style={styles.photoContainer}>
         <View style={styles.photoContainerLeft}>
@@ -103,8 +105,14 @@ const Profile = () => {
         </MapView>
         <Button onPress={getGeolocation}>найти меня</Button>
       </View>
-      <Text style={styles.title}>Версия приложения 1.0.0</Text>
-    </View>
+      <View style={styles.pushContainer}>
+        <Text style={styles.title}>Работа с пушами</Text>
+        <Button onPress={sendPush}>Отправить пуш</Button>
+      </View>
+      <View style={styles.infoContainer}>
+        <Text style={styles.title}>Версия приложения 1.0.0</Text>
+      </View>
+    </ScrollView>
   );
 };
 
