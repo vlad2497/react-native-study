@@ -31,7 +31,7 @@ export default () => {
     // This listener is fired whenever a user taps on or interacts with a notification (works when app is foregrounded, backgrounded, or killed)
     responseListener.current =
       Notifications.addNotificationResponseReceivedListener((response) => {
-        console.log(response);
+        //console.log(response);
       });
 
     return () => {
@@ -41,8 +41,6 @@ export default () => {
       Notifications.removeNotificationSubscription(responseListener.current);
     };
   }, []);
-
-  console.log(notification);
 
   const sendPush = useCallback(async () => {
     await sendPushNotification(expoPushToken);

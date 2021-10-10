@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { View, TextInput, ScrollView, Text, Dimensions } from "react-native";
+import React, { useState, useEffect, useCallback } from "react";
+import { View, TextInput, ScrollView, Text, Dimensions, RefreshControl } from "react-native";
 import { Button, ActivityIndicator } from "react-native-paper";
 import { Shadow } from "react-native-shadow-2";
 
@@ -16,19 +16,27 @@ const List = ({ navigation }) => {
   const [search, setSearch] = useState("");
   const [popularMovies, setPopularMovies] = useState([]);
   const [topMovies, setTopMovies] = useState([]);
+  const [refreshing, setRefreshing] = useState(false);
+
+  const fetchMovies = useCallback(async () => {
+    try {
+      const popularList = await getPopularList();
+      setPopularMovies(popularList?.data?.results);
+      const topList = await getTopList();
+      setTopMovies(topList?.data?.results);
+    } catch (e) {
+      console.log(e);
+    }
+  }, []);
 
   useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const popularList = await getPopularList();
-        setPopularMovies(popularList?.data?.results);
-        const topList = await getTopList();
-        setTopMovies(topList?.data?.results);
-      } catch (e) {
-        console.log(e);
-      }
-    };
     fetchMovies();
+  }, [fetchMovies]);
+
+  const onRefresh = useCallback(async () => {
+    setRefreshing(true);
+    await fetchMovies();
+    setRefreshing(false);
   }, []);
 
   if (!popularMovies?.length || !topMovies?.length)
@@ -39,7 +47,7 @@ const List = ({ navigation }) => {
     );
 
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView style={styles.container} refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}>
       <Banner />
       <View style={styles.content}>
         <View style={styles.search}>
@@ -52,7 +60,7 @@ const List = ({ navigation }) => {
               placeholderTextColor={"white"}
             />
           </Shadow>
-          <Button flat style={styles.button} color="#5c3c92" onPress={() => {}}>
+          <Button flat style={styles.button} color="#5c3c92" onPress={() => { }}>
             Найти
           </Button>
         </View>

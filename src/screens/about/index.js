@@ -7,6 +7,8 @@ import { CameraButton, CameraView } from "components/ui/camera";
 import Button from "components/ui/button";
 import useGetGeolocation from "hooks/useGetGeolocation";
 import useSubscribeForPushNotifications from "hooks/useSubscribeForPushNotifications";
+import useShare from "hooks/useShare";
+
 import {
   createUsersTable,
   getUsers,
@@ -24,6 +26,7 @@ const Profile = () => {
   const [users, setUsers] = useState(null);
   const { location, getGeolocation } = useGetGeolocation();
   const { sendPush } = useSubscribeForPushNotifications();
+  const { onShare } = useShare();
 
   useEffect(() => {
     createUsersTable();
@@ -111,6 +114,7 @@ const Profile = () => {
       </View>
       <View style={styles.infoContainer}>
         <Text style={styles.title}>Версия приложения 1.0.0</Text>
+        <Button onPress={() => onShare("Версия приложения 1.0.0")}>поделиться</Button>
       </View>
     </ScrollView>
   );

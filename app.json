@@ -5,6 +5,7 @@
     "version": "1.0.3",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "scheme": "movies",
     "splash": {
       "image": "./assets/auth-logo.png",
       "resizeMode": "contain",
@@ -13,7 +14,9 @@
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": ["**/*"],
+    "assetBundlePatterns": [
+      "**/*"
+    ],
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.ideas.test"
@@ -28,7 +31,9 @@
         "googleMaps": {
           "apiKey": "AIzaSyDYPupywa59C-8_Y9oxUKcoMTN_QmbHaDM"
         }
-      }
+      },
+      "useNextNotificationsApi": true,
+      "googleServicesFile": "./google-services.json"
     },
     "web": {
       "favicon": "./assets/favicon.png"
