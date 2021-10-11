@@ -18,9 +18,9 @@ export default () => {
   const responseListener = useRef();
 
   useEffect(() => {
-    registerForPushNotificationsAsync().then((token) =>
+    registerForPushNotificationsAsync().then((token) => {
       setExpoPushToken(token)
-    );
+    });
 
     // This listener is fired whenever a notification is received while the app is foregrounded
     notificationListener.current =
@@ -44,7 +44,7 @@ export default () => {
 
   const sendPush = useCallback(async () => {
     await sendPushNotification(expoPushToken);
-  }, []);
+  }, [expoPushToken]);
 
   return { sendPush };
 };
