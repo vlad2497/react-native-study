@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { ScrollView, View, Text, Image } from "react-native";
-import MapView from "react-native-maps";
+import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 
 import ImagePicker from "components/ui/image-picker";
 import { CameraButton, CameraView } from "components/ui/camera";
@@ -96,6 +96,7 @@ const Profile = () => {
             latitudeDelta: location?.coords?.latitude ? 0.01 : 0.0922,
             longitudeDelta: location?.coords?.latitude ? 0.01 : 0.0421,
           }}
+          provider={PROVIDER_GOOGLE}
         >
           {location && (
             <Marker

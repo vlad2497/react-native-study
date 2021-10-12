@@ -2,7 +2,7 @@
   "expo": {
     "name": "Фильмы",
     "slug": "react-native-app",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "scheme": "movies",
@@ -19,7 +19,11 @@
     ],
     "ios": {
       "supportsTablet": true,
-      "bundleIdentifier": "com.ideas.test"
+      "bundleIdentifier": "com.ideas.test",
+      "buildNumber": "1.0.4",
+      "config": {
+        "googleMapsApiKey": "AIzaSyCk28eag4pp1U0NqJUNfNwGWKKE3GcCWok"
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -27,6 +31,7 @@
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.ideas.test",
+      "versionCode": 4,
       "config": {
         "googleMaps": {
           "apiKey": "AIzaSyDYPupywa59C-8_Y9oxUKcoMTN_QmbHaDM"
